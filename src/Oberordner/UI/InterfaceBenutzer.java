@@ -2,7 +2,7 @@ package Oberordner.UI;
 
 import Oberordner.Logik.Raum;
 
-import java.util.ArrayList;
+//@ Author Sami Yaddouche
 
 public interface InterfaceBenutzer {
 

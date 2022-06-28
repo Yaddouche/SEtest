@@ -1,6 +1,10 @@
 package Oberordner.Logik;
 
-public class Raum {
+import Oberordner.UI.InterfaceRaum;
+
+//@Author Katharina Brinz
+
+public class Raum implements InterfaceRaum {
     private String name;
     private int raumID;
     private boolean verfuegbarkeit;
@@ -35,4 +39,12 @@ public class Raum {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package Oberordner.UI;
 
+//@Author Katharina Brinz
 public interface InterfaceRaum {
 
     public String getName();

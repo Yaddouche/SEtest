@@ -1,18 +1,19 @@
 package Oberordner.Datenbank;
 
+import Oberordner.Logik.InterfaceRaumSpeicher;
 import Oberordner.Logik.Raum;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-//ToDo: Diese Klasse als Speicher nutzen?
-public class RaumDatenbank {
 
-  protected  ArrayList<Raum> verfuegbareRaeume = new ArrayList<>();
-  protected  ArrayList<Raum> belegteRaeume = new ArrayList<>();
+////@Author Sami Yaddouche, Lena Hartmann
+public class RaumDatenbank implements InterfaceRaumSpeicher {
+
+    private ArrayList<Raum> verfuegbareRaeume = new ArrayList<>();
+    private ArrayList<Raum> belegteRaeume = new ArrayList<>();
 
 
- // Hier werden die Raeume zu den Sets hinzugefügt um den Überblick über die Raeume zu behalten
+
+    // Hier werden die Raeume zu den Sets hinzugefügt um den Überblick über die Raeume zu behalten
     public void speicherVerfuegbarenRaum(Raum raum) {
         verfuegbareRaeume.add(raum);
     }
@@ -31,19 +32,24 @@ public class RaumDatenbank {
 
 
 
-    //ToDo: Hier sollen alle Verfuegbaren Raeume des Sets angezeigt werden
-    public void ladeVerfuegbareRaume() {
-        for(Raum raeume : verfuegbareRaeume) {
-            System.out.println(verfuegbareRaeume);
+    //ToDo: Hier sollen alle Verfuegbaren Raeume der ArrayListe angezeigt werden
+    public String ladeVerfuegbareRaeume() {
+        String raueme = "";
+        for(Raum raum : verfuegbareRaeume) {
+            raueme += raum+"\n";
         }
+        return raueme;
     }
 
     //ToDo: Hier sollen alle belegten Raeume angezeigt werden
-    public void ladeBelegteRaeume() {
+    public String ladeBelegteRaeume() {
+        String raueme = "";
         for(Raum raum : belegteRaeume) {
-            System.out.println(belegteRaeume);
+            raueme += raum+"\n";
         }
+        return raueme;
     }
 
 }
+
 
