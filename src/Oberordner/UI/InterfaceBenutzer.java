@@ -1,6 +1,6 @@
 package Oberordner.UI;
 
-import Oberordner.Logik.Raum;
+import Oberordner.Objekte.Raum;
 
 //@ Author Sami Yaddouche
 

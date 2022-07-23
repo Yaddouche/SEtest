@@ -1,10 +1,10 @@
-package Oberordner.Logik;
+package Oberordner.Objekte;
 
-import Oberordner.UI.InterfaceRaum;
+import Oberordner.UI.IRaum;
 
 //@Author Katharina Brinz
 
-public class Raum implements InterfaceRaum {
+public class Raum implements IRaum {
     private String name;
     private int raumID;
     private boolean verfuegbarkeit;

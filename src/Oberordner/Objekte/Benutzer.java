@@ -1,4 +1,4 @@
-package Oberordner.Logik;
+package Oberordner.Objekte;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -9,11 +9,14 @@ import Oberordner.UI.InterfaceBenutzer;
 //@Author Sami Yaddouche
 public class Benutzer implements InterfaceBenutzer {
     private String name;
+    private int benutzerID;
+
     private ArrayList<Raum> meineBuchungen = new ArrayList<>();
 
     //Konstruktor
-    public Benutzer(String name) {
+    public Benutzer(String name, int benutzerID) {
         this.name = name;
+        this.benutzerID = benutzerID;
     }
 
     // Datenbank
@@ -24,7 +27,7 @@ public class Benutzer implements InterfaceBenutzer {
     public String bucheRaum(Raum raum) {
         String ausgabe = "";
 
-        if (raum.getVerfuegbarkeit() != false) {
+        if (raum.getVerfuegbarkeit()) {
 
             Object[] obj={"Ja","Nein"};
             ImageIcon icon = new ImageIcon("jaNein");
@@ -41,7 +44,7 @@ public class Benutzer implements InterfaceBenutzer {
             }
 
 
-        } else if (raum.getVerfuegbarkeit() == false) {
+        } else if (!raum.getVerfuegbarkeit()) {
             ausgabe = "Der Raum '" + raum + "' ist nicht verfügbar.";
         }
         return ausgabe;
@@ -52,7 +55,7 @@ public class Benutzer implements InterfaceBenutzer {
     @Override
     public String storniereRaum(Raum raum) {
         String ausgabe = "";
-        if (raum.getVerfuegbarkeit() == false) {
+        if (!raum.getVerfuegbarkeit()) {
             raum.setVerfuegbarkeit(true);
             meineBuchungen.remove(raum);
             raumDatenbank.speicherVerfuegbarenRaum(raum);
@@ -73,7 +76,7 @@ public class Benutzer implements InterfaceBenutzer {
 
     @Override
     public String zeigeVerfuegbareRaeume() {
-        String ausgabe = "";
+        String ausgabe;
         ausgabe = "Verf�gbaren Raeume: " + raumDatenbank.ladeVerfuegbareRaeume();
         return ausgabe;
     }
