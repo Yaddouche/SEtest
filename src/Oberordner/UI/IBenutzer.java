@@ -1,14 +1,18 @@
 package Oberordner.UI;
 
-import Oberordner.Objekte.Raum;
+import Oberordner.Logik.Objekte.Raum;
 
 //@ Author Sami Yaddouche
 
-public interface InterfaceBenutzer {
+public interface IBenutzer {
 
    String bucheRaum(Raum raum);
    String storniereRaum(Raum raum);
    String zeigeMeineBuchungen();
    String zeigeVerfuegbareRaeume();
+
+   static void erstelleNeuenBenutzer(String objektname,String name, String passwort) {
+
+   }
 
 }

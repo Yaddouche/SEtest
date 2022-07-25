@@ -1,7 +1,9 @@
 package Oberordner.UI;
 
 import Oberordner.Datenbank.RaumDatenbank;
+import Oberordner.UI.Display;
 
+import static Oberordner.UI.Display.registriereBenutzer;
 
 
 public class Main {
@@ -37,7 +39,8 @@ public class Main {
         System.out.println(olaf.bucheRaum(audimatze));
         System.out.println(audimax.getVerfuegbarkeit());
 */
-        System.out.println(RaumDatenbank.ladeAlleRaeume());
+        registriereBenutzer();
+
 
 
 

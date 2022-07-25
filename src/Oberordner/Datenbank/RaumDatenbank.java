@@ -1,7 +1,7 @@
 package Oberordner.Datenbank;
 
 import Oberordner.Logik.IRaumDatenbank;
-import Oberordner.Objekte.Raum;
+import Oberordner.Logik.Objekte.Raum;
 
 import java.util.ArrayList;
 

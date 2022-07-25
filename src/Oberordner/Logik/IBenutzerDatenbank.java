@@ -1,10 +1,17 @@
 package Oberordner.Logik;
 
-import Oberordner.Objekte.Benutzer;
+import Oberordner.Logik.Objekte.Benutzer;
+
+import java.util.ArrayList;
 
 public interface IBenutzerDatenbank {
 
+
+
     void speicherBenutzer(Benutzer neuerBenutzer);
-    String ladeBenutzer(int benutzer);
+
+    static ArrayList<Benutzer> ladeAlleBenutzer() {
+        return null;
+    }
 
 }

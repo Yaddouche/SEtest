@@ -1,15 +1,16 @@
 package Oberordner.Datenbank;
 
-import Oberordner.Objekte.Benutzer;
+import Oberordner.Logik.Objekte.Benutzer;
 import Oberordner.Logik.IBenutzerDatenbank;
-import Oberordner.Objekte.Raum;
+import Oberordner.Logik.Objekte.Raum;
 
 import java.util.ArrayList;
 
 public class BenutzerDatenbank implements IBenutzerDatenbank {
 
-    private static ArrayList<Benutzer> alleBenutzer = new ArrayList<>();
-    private static ArrayList<Raum> meineBuchungen = new ArrayList<>();
+    public static ArrayList<Benutzer> alleBenutzer = new ArrayList<>();
+    public static ArrayList<Raum> meineBuchungen = new ArrayList<>();
+
 
 
 
@@ -20,8 +21,13 @@ public class BenutzerDatenbank implements IBenutzerDatenbank {
 
 
 
-    public String ladeBenutzer(int benutzerID) {
+    public static ArrayList<Benutzer> ladeAlleBenutzer() {
 
-        return null;
+        return alleBenutzer;
+    }
+
+    //ToDo: zeige Elemente der ArrayList
+    public void zeigeMeineBuchungen () {
+       System.out.println(meineBuchungen.listIterator());
     }
 }
