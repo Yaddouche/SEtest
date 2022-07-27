@@ -2,10 +2,10 @@ package Oberordner.Logik.Objekte;
 
 import java.util.ArrayList;
 
-import Oberordner.Datenbank.BenutzerDatenbank;
+
 import Oberordner.UI.IBenutzer;
 
-import static Oberordner.Datenbank.BenutzerDatenbank.alleBenutzer;
+
 
 //@Author Sami Yaddouche
 public class Benutzer implements IBenutzer {
@@ -19,7 +19,7 @@ public class Benutzer implements IBenutzer {
     public Benutzer(String name, String passwort) {
         this.name = name;
         this.passwort = passwort;
-        this.benutzerID = benutzerID+1;
+        this.benutzerID = (int) (Math.random() * 100);
     }
 
     @Override
@@ -42,7 +42,30 @@ public class Benutzer implements IBenutzer {
         return null;
     }
 
-    /*
+
+    public ArrayList<Raum> getMeineBuchungen() {
+        return meineBuchungen;
+    }
+
+    public String getName() {return name;}
+
+    public String getPasswort() {return passwort;}
+
+    public int getBenutzerID() {return benutzerID;}
+
+    public static void fuegeBuchungHinzu(Raum raum) {
+        meineBuchungen.add(raum);
+    }
+
+    public String toString() {
+        return "Name: " +  getName() + "\nPasswort: " + getPasswort() + "\nBenutzerID: " + getBenutzerID();
+    }
+
+
+
+
+
+        /*
         // Datenbank
         protected RaumDatenbank raumDatenbank = new RaumDatenbank();
 
@@ -106,30 +129,5 @@ public class Benutzer implements IBenutzer {
     }
 
  */
-
-    public ArrayList<Raum> getMeineBuchungen() {
-        return meineBuchungen;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public static void fuegeBuchungHinzu(Raum raum) {
-        meineBuchungen.add(raum);
-    }
-
-    public static void erstelleNeuenBenutzer( String name, String passwort) {
-       // neues Objekt erstellen
-        Benutzer neuerBenutzer = new Benutzer(name, passwort);
-        alleBenutzer.add(neuerBenutzer);
-    }
-    //ToDo: Methode die den Namen des Objekts ausgibt um zu vergleichen
-    public static String gibDenNamenDesElementsHer(Benutzer benutzer) {
-     for (int i = 0; i < alleBenutzer.size(); i++) {
-         if (alleBenutzer.get(i) == alleBenutzer)
-     }
-        return null;
-    }
 }
 

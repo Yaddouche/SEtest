@@ -8,10 +8,11 @@ public interface IBenutzerDatenbank {
 
 
 
-    void speicherBenutzer(Benutzer neuerBenutzer);
-
-    static ArrayList<Benutzer> ladeAlleBenutzer() {
+    static Benutzer ladeBenutzer() {
         return null;
     }
 
+    static void zeigeMeineBuchungen() {
+
+    }
 }

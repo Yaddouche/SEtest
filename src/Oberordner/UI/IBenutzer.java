@@ -10,9 +10,6 @@ public interface IBenutzer {
    String storniereRaum(Raum raum);
    String zeigeMeineBuchungen();
    String zeigeVerfuegbareRaeume();
-
-   static void erstelleNeuenBenutzer(String objektname,String name, String passwort) {
-
-   }
+   String toString();
 
 }

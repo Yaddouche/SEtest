@@ -14,20 +14,25 @@ public class BenutzerDatenbank implements IBenutzerDatenbank {
 
 
 
-    @Override
-    public void speicherBenutzer(Benutzer neuerBenutzer) {
-        alleBenutzer.add(neuerBenutzer);
+
+    /**
+     * Soll alle in der Arraylist registrierten Benutzer ausgeben
+     */
+    // ToDo: Wieso zeigt es keine gespeicherten Elemente ??
+    public static void ladeBenutzer() {
+        for (int i = 0; i < alleBenutzer.size(); i++) {
+            System.out.println(alleBenutzer.get(i));
+        }
+
     }
-
-
-
-    public static ArrayList<Benutzer> ladeAlleBenutzer() {
-
-        return alleBenutzer;
-    }
-
     //ToDo: zeige Elemente der ArrayList
-    public void zeigeMeineBuchungen () {
-       System.out.println(meineBuchungen.listIterator());
+      public static void zeigeMeineBuchungen() {
+        for (int i = 0; i < meineBuchungen.size(); i++) {
+            System.out.println(meineBuchungen.get(i));
+        }
+    }
+
+    public static void erstelleBenutzer(String name, String passwort){
+        alleBenutzer.add(new Benutzer(name,passwort));
     }
 }
