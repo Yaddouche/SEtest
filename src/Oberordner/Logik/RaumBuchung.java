@@ -54,7 +54,7 @@ public class RaumBuchung implements IRaumBuchung {
 
     }
 
-    /** Passwort vergleich */
+    /** Passwort abgleich */
     public static boolean pruefePasswort(String name, String passwort) {
         boolean ergebnis = false;
 
@@ -69,7 +69,7 @@ public class RaumBuchung implements IRaumBuchung {
         // Dialogfenster:
         int option = JOptionPane.showConfirmDialog(null, msg, "Login", 2);
 
-        // Passwort vergleich
+        // Passwort abgleich
         if (pruefePasswort(feld[0].getText(), feld[1].getText())) {
             JOptionPane.showMessageDialog(null, "Herzlich Willkommen: " + feld[0].getText() + "\nSie haben sich erfolgreich eingeloggt!");
         } else {

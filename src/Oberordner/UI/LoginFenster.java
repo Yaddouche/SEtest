@@ -53,7 +53,6 @@ public class LoginFenster implements ActionListener {
         }
         if (e.getSource()==login) {
             frame.dispose();
-            // Login Methode hier
             loginBenutzer();
         }
 
