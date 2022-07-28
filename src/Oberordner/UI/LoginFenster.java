@@ -44,7 +44,7 @@ public class LoginFenster implements ActionListener {
 
 
     }
-/** Diese Methode lässt etwas geschehen, wenn man auf die Knöpfe im Fenster drückt*/
+/** Diese Methode lässt etwas geschehen, wenn man auf die Knöpfe drückt*/
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==registriere) {

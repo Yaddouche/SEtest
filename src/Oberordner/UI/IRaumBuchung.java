@@ -15,12 +15,8 @@ public interface IRaumBuchung {
         return false;
     }
 
-    static String bucheRaum(Raum raum) {
-        return null;
-    }
+    static void bucheRaum(Raum raum) {}
 
 
-    static String storniereBuchung(Raum raum) {
-        return null;
-    }
+    static void storniereBuchung(Raum raum) {}
 }

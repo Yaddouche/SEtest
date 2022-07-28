@@ -1,36 +1,38 @@
 package Oberordner.Logik;
 
+
 import Oberordner.Datenbank.RaumDatenbank;
 import Oberordner.Logik.Objekte.Benutzer;
 import Oberordner.Logik.Objekte.Raum;
 import Oberordner.UI.IRaumBuchung;
-
+import Oberordner.UI.LoginFenster;
 
 import javax.swing.*;
-
-import static Oberordner.Datenbank.BenutzerDatenbank.*;
+import static Oberordner.Datenbank.BenutzerDatenbank.alleBenutzer;
+import static Oberordner.Datenbank.BenutzerDatenbank.speicherBenutzer;
 
 
 public class RaumBuchung implements IRaumBuchung {
 
-    public static String bucheRaum(Raum raum) {
-        String ausgabe = "";
+    /** Raum buchen */
+    public static void bucheRaum(Raum raum) {
 
         if (raum.getVerfuegbarkeit()) {
             RaumDatenbank.speicherBelegtenRaum(raum);
             raum.setVerfuegbarkeit(false);
             Benutzer.fuegeBuchungHinzu(raum);
-            ausgabe = "Sie haben den Raum: " + raum.getName() + " erfolgreich gebucht.";
+           System.out.println("Sie haben den Raum: " + raum.getName() + " erfolgreich gebucht.");
         }
 
         else if (!raum.getVerfuegbarkeit()) {
-            ausgabe = "Der Raum " + raum.getName() + " ist leider bereits belegt.";
+            System.out.println("Der Raum " + raum.getName() + " ist leider bereits belegt.");
         }
-        return ausgabe;
     }
 
-    public static String storniereBuchung(Raum raum) {
-        return "";
+
+    /** Buchung stornieren */
+    public static void storniereBuchung(Raum raum) {
+
     }
 
     /** Benutzer erstellen */
@@ -43,12 +45,7 @@ public class RaumBuchung implements IRaumBuchung {
         int click = JOptionPane.showConfirmDialog(null, msg, "Registrierung", 2);
 
 
-        //ToDo: Benutzer wird gespeichert aber wieso ist bei der zweiten Registrierung der Eintrag in der Arraylist weg??
-        // -> in der Main Methode Element der Arraylist nicht sichtbar, Wieso??
-        // for (int i = 0; i < alleBenutzer.size();i++) {
-        // if (alleBenutzer.contains())
-        erstelleBenutzer(feld[0].getText(),feld[1].getText());
-        ladeBenutzer();
+        speicherBenutzer(feld[0].getText(),feld[1].getText());
     // }
         JOptionPane.showMessageDialog(null, "Ihr Benutzer: " + feld[0].getText() + " wurde erfolreich erstellt.");
 
@@ -57,7 +54,12 @@ public class RaumBuchung implements IRaumBuchung {
     /** Passwort abgleich */
     public static boolean pruefePasswort(String name, String passwort) {
         boolean ergebnis = false;
-
+        for(int i = 0; i < alleBenutzer.size();i++) {
+            if (alleBenutzer.contains(name) && alleBenutzer.contains(passwort)) {
+                ergebnis = true;
+            }
+            else {ergebnis = false;}
+        }
         return ergebnis;
     }
 
@@ -77,6 +79,10 @@ public class RaumBuchung implements IRaumBuchung {
         }
     }
 
+    /** Hier beginnt die Raumbuchung */
+    public static void starteProgramm() {
+        LoginFenster loginFenster = new LoginFenster();
+    }
 
     }
 
