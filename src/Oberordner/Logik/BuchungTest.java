@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 import org.junit.jupiter.api.Test;
 
-import Oberordner.Logik.Objekte.Benutzer;
-import Oberordner.Logik.Objekte.Raum;
+import Oberordner.Objekte.Benutzer;
+import Oberordner.Objekte.Raum;
 
 //@Author Lena Hartmann
 public class BuchungTest {

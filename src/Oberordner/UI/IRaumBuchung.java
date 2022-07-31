@@ -1,6 +1,6 @@
 package Oberordner.UI;
 
-import Oberordner.Logik.Objekte.Raum;
+import Oberordner.Objekte.Raum;
 
 public interface IRaumBuchung {
 

@@ -1,6 +1,6 @@
 package Oberordner.Logik;
 
-import Oberordner.Logik.Objekte.Benutzer;
+import Oberordner.Objekte.Benutzer;
 
 
 public interface IBenutzerDatenbank {

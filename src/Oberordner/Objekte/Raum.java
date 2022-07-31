@@ -1,4 +1,4 @@
-package Oberordner.Logik.Objekte;
+package Oberordner.Objekte;
 
 import Oberordner.UI.IRaum;
 

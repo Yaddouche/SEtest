@@ -1,4 +1,4 @@
-package Oberordner.Logik.Objekte;
+package Oberordner.Objekte;
 
 import java.util.ArrayList;
 
@@ -10,8 +10,8 @@ import Oberordner.UI.IBenutzer;
 
 //@Author Sami Yaddouche
 public class Benutzer implements IBenutzer {
-    public String name;
-    public String passwort;
+    private String name;
+    private String passwort;
     private int benutzerID;
 
     private static ArrayList<Raum> meineBuchungen = new ArrayList<>();
@@ -23,16 +23,7 @@ public class Benutzer implements IBenutzer {
         this.benutzerID = (int) (Math.random() * 100);
     }
 
-    @Override
-    public void bucheRaum() {
 
-
-    }
-
-    @Override
-    public void storniereRaum(Raum raum) {
-
-    }
 
     @Override
     public void zeigeMeineBuchungen() {
@@ -42,7 +33,7 @@ public class Benutzer implements IBenutzer {
     }
 
 
-    public static void fuegeBuchungHinzu(Raum raum) {
+    public void fuegeBuchungHinzu(Raum raum) {
         meineBuchungen.add(raum);
     }
 

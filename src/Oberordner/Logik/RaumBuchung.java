@@ -2,8 +2,8 @@ package Oberordner.Logik;
 
 
 import Oberordner.Datenbank.RaumDatenbank;
-import Oberordner.Logik.Objekte.Benutzer;
-import Oberordner.Logik.Objekte.Raum;
+import Oberordner.Objekte.Benutzer;
+import Oberordner.Objekte.Raum;
 import Oberordner.UI.BuchungsFenster;
 import Oberordner.UI.IRaumBuchung;
 import Oberordner.UI.LoginFenster;

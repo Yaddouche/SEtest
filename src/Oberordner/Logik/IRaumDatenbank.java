@@ -1,6 +1,6 @@
 package Oberordner.Logik;
 
-import Oberordner.Logik.Objekte.Raum;
+import Oberordner.Objekte.Raum;
 
 //@ Author Sami Yaddouche, Lena Hartmann
 public interface IRaumDatenbank {

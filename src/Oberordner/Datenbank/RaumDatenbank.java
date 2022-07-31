@@ -2,7 +2,7 @@ package Oberordner.Datenbank;
 
 import Oberordner.Logik.IRaumDatenbank;
 
-import Oberordner.Logik.Objekte.Raum;
+import Oberordner.Objekte.Raum;
 
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class RaumDatenbank implements IRaumDatenbank {
 
     private static ArrayList<Raum> verfuegbareRaeume;
     private static ArrayList<Raum> belegteRaeume;
-    private static ArrayList<Raum> alleRaeume;
+    protected static ArrayList<Raum> alleRaeume;
 
     public static Raum audimax = new Raum("Audimax", 1, true);
     public static Raum bibliothek = new Raum("Bibliothek", 2, true);

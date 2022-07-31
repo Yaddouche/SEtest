@@ -1,20 +1,19 @@
 package Oberordner.Datenbank;
 
-import Oberordner.Logik.Objekte.Benutzer;
+import Oberordner.Objekte.Benutzer;
 import Oberordner.Logik.IBenutzerDatenbank;
-import Oberordner.Logik.Objekte.Raum;
 
 import java.util.ArrayList;
 
 public class BenutzerDatenbank implements IBenutzerDatenbank {
 
     private static ArrayList<Benutzer> alleBenutzer;
-    private static ArrayList<Raum> meineBuchungen;
+
     public static BenutzerDatenbank benutzerDatenbank = new BenutzerDatenbank();
 
     public BenutzerDatenbank() {
-        this.alleBenutzer = new ArrayList<>();
-        this.meineBuchungen = new ArrayList<>();
+        alleBenutzer = new ArrayList<>();
+
     }
 
     public void speicherBenutzer(String name, String passwort) {
@@ -44,11 +43,7 @@ public class BenutzerDatenbank implements IBenutzerDatenbank {
         return existiert;
     }
 
-    public static void zeigeMeineBuchungen() {
-        for (Raum raum : meineBuchungen) {
-            System.out.println(raum);
-        }
-    }
+
 
 
 }
