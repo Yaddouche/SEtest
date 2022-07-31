@@ -1,17 +1,25 @@
 package Oberordner.UI;
 
 
-import Oberordner.Datenbank.BenutzerDatenbank;
+import Oberordner.Logik.Objekte.Benutzer;
 
-import static Oberordner.Datenbank.BenutzerDatenbank.ladeBenutzer;
+import static Oberordner.Datenbank.RaumDatenbank.ladeAlleRaeume;
+import static Oberordner.Datenbank.RaumDatenbank.zeigeAlleRaeume;
+import static Oberordner.Logik.IBenutzerDatenbank.ladeBenutzer;
+import static Oberordner.Logik.RaumBuchung.buchungOderStornierung;
 import static Oberordner.Logik.RaumBuchung.starteProgramm;
 
 public class Main {
 
     public static void main(String[] args) {
 
-       starteProgramm();
-    ladeBenutzer();
+        zeigeAlleRaeume();
+        starteProgramm();
+
+
+        Benutzer sami = new Benutzer("sami", "abc");
+
+        ladeBenutzer();
 
     }
 }

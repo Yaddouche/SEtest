@@ -9,6 +9,7 @@ public interface IRaumBuchung {
     }
 
     static void loginBenutzer() {
+
     }
 
     static boolean pruefePasswort(String passwort){

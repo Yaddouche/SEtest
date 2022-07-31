@@ -6,10 +6,10 @@ import Oberordner.Logik.Objekte.Raum;
 
 public interface IBenutzer {
 
-   String bucheRaum(Raum raum);
-   String storniereRaum(Raum raum);
-   String zeigeMeineBuchungen();
-   String zeigeVerfuegbareRaeume();
+
+   void bucheRaum();
+   void storniereRaum(Raum raum);
+   void zeigeMeineBuchungen();
    String toString();
 
 }

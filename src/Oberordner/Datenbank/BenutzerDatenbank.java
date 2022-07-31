@@ -8,40 +8,47 @@ import java.util.ArrayList;
 
 public class BenutzerDatenbank implements IBenutzerDatenbank {
 
-    public static ArrayList<Benutzer> alleBenutzer = new ArrayList<>();
-    public static ArrayList<Raum> meineBuchungen;
+    private static ArrayList<Benutzer> alleBenutzer;
+    private static ArrayList<Raum> meineBuchungen;
+    public static BenutzerDatenbank benutzerDatenbank = new BenutzerDatenbank();
 
-
-
-    public BenutzerDatenbank () {
-    this.alleBenutzer = new ArrayList<>();
-    meineBuchungen = new ArrayList<>();
+    public BenutzerDatenbank() {
+        this.alleBenutzer = new ArrayList<>();
+        this.meineBuchungen = new ArrayList<>();
     }
 
-    public static void speicherBenutzer(String name, String passwort) {
+    public void speicherBenutzer(String name, String passwort) {
 
-        alleBenutzer.add(new Benutzer(name,passwort));
+        alleBenutzer.add(new Benutzer(name, passwort));
     }
 
     /**
      * Soll alle in der Arraylist registrierten Benutzer ausgeben
      */
-    // ToDo: Wieso zeigt es keine gespeicherten Elemente ??
+
     public static void ladeBenutzer() {
-        for (int i = 0; i < alleBenutzer.size(); i++) {
-            System.out.println(alleBenutzer);
+        for (Benutzer benutzer : alleBenutzer) {
+            System.out.println(benutzer);
         }
 
     }
-    //ToDo: zeige Elemente der ArrayList
-      public static void zeigeMeineBuchungen() {
-        for (int i = 0; i < meineBuchungen.size(); i++) {
-            System.out.println(meineBuchungen.get(i));
+
+    public static boolean existiertBenutzer(String name) {
+        boolean existiert = false;
+        for (Benutzer benutzer : alleBenutzer) {
+            if (benutzer.getName() == name) {
+                existiert = true;
+                break;
+            }
         }
+        return existiert;
     }
 
-
-
+    public static void zeigeMeineBuchungen() {
+        for (Raum raum : meineBuchungen) {
+            System.out.println(raum);
+        }
+    }
 
 
 }

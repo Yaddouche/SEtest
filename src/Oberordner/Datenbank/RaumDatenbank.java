@@ -1,30 +1,37 @@
 package Oberordner.Datenbank;
 
 import Oberordner.Logik.IRaumDatenbank;
+
 import Oberordner.Logik.Objekte.Raum;
+
 
 import java.util.ArrayList;
 
 
 public class RaumDatenbank implements IRaumDatenbank {
 
-    private static ArrayList<Raum> verfuegbareRaeume = new ArrayList<>();
-    private static ArrayList<Raum> belegteRaeume = new ArrayList<>();
-    private static ArrayList<Raum> alleRaeume = new ArrayList<>();
+    private static ArrayList<Raum> verfuegbareRaeume;
+    private static ArrayList<Raum> belegteRaeume;
+    private static ArrayList<Raum> alleRaeume;
 
-    Raum audimax = new Raum("Audimax", 1, true);
-    Raum bibliothek = new Raum("Bibliothek", 2, true);
-    Raum mu13 = new Raum("MU13",3,true);
+    public static Raum audimax = new Raum("Audimax", 1, true);
+    public static Raum bibliothek = new Raum("Bibliothek", 2, true);
+    public static Raum mu13 = new Raum("MU13", 3, true);
 
-    // Hier werden die Raeume zu den Array Listen hinzugefügt um den Überblick über die Raeume zu behalten
+    public static RaumDatenbank raumDatenbank = new RaumDatenbank();
 
-    public void speicherAlleRaeume(Raum raum){
-        alleRaeume.add(audimax);
-        alleRaeume.add(bibliothek);
-        alleRaeume.add(mu13);
+    public RaumDatenbank() {
+        verfuegbareRaeume = new ArrayList<>();
+        belegteRaeume = new ArrayList<>();
+        alleRaeume = new ArrayList<>();
     }
 
-    public void speicherVerfuegbarenRaum(Raum raum) {
+    public void speicherAlleRaeume(Raum raum) {
+        alleRaeume.add(raum);
+
+    }
+
+    public static void speicherVerfuegbarenRaum(Raum raum) {
         verfuegbareRaeume.add(raum);
     }
 
@@ -33,44 +40,57 @@ public class RaumDatenbank implements IRaumDatenbank {
     }
 
 
-
     // Hier werden Raeume entfernt von den Sets bei Stornierungen / Buchungen
     public static void entferneVerfuegbarenRaum(Raum raum) {
         verfuegbareRaeume.remove(raum);
     }
-    public void entferneBelegtenRaum(Raum raum) {
+
+    public static void entferneBelegtenRaum(Raum raum) {
         belegteRaeume.remove(raum);
     }
 
 
-
-
     //ToDo: Verfuegbare Raeume anzeigen
-    public static String ladeVerfuegbareRaeume() {
-        String raueme = "";
-        for(Raum raum : verfuegbareRaeume) {
-            raueme += raum+"\n";
+    public static void ladeVerfuegbareRaeume() {
+        for (Raum raum : verfuegbareRaeume) {
+            System.out.println(raum);
         }
-        return raueme;
     }
+
 
     //ToDo: Belegte Raeume anzeigen
-    public static String ladeBelegteRaeume() {
-        String raueme = "";
-        for(Raum raum : belegteRaeume) {
-            raueme += raum+"\n";
+    public static void ladeBelegteRaeume() {
+        for (Raum raum : belegteRaeume) {
+            System.out.println(raum);
         }
-        return raueme;
     }
 
+
     //ToDo: Alle Raeume anzeigen
-    public static String ladeAlleRaeume() {
-        String raueme = "";
-        for(Raum raum : alleRaeume) {
-            raueme += raum+"\n";
-        }
-        return raueme;
+    public static ArrayList<Raum> ladeAlleRaeume() {
+        Raum audimax = new Raum("Audimax", 1, true);
+        Raum bibliothek = new Raum("Bibliothek", 2, true);
+        Raum mu13 = new Raum("MU13", 3, true);
+        raumDatenbank.speicherAlleRaeume(audimax);
+        raumDatenbank.speicherAlleRaeume(bibliothek);
+        raumDatenbank.speicherAlleRaeume(mu13);
+
+
+        return alleRaeume;
+
     }
+
+    public static void zeigeAlleRaeume() {
+        for (Raum raum : ladeAlleRaeume()) {
+            System.out.println(raum);
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+
 }
 
 

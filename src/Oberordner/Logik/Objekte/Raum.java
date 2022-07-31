@@ -7,9 +7,9 @@ import Oberordner.UI.IRaum;
 public class Raum implements IRaum {
     private String name;
     private int raumID;
-    private boolean verfuegbarkeit;
+    private static boolean verfuegbarkeit;
 
-    public Raum(String name, int raumID, boolean verfuegbarkeit){
+    public Raum(String name, int raumID, boolean verfuegbarkeit) {
         this.name = name;
         this.raumID = raumID;
         this.verfuegbarkeit = true;
@@ -20,7 +20,8 @@ public class Raum implements IRaum {
         this.verfuegbarkeit = status;
     }
 
-    public boolean getVerfuegbarkeit() {
+    public static boolean getVerfuegbarkeit(Raum raum) {
+
         return verfuegbarkeit;
     }
 

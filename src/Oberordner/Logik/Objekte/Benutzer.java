@@ -3,14 +3,15 @@ package Oberordner.Logik.Objekte;
 import java.util.ArrayList;
 
 
+
 import Oberordner.UI.IBenutzer;
 
 
 
 //@Author Sami Yaddouche
 public class Benutzer implements IBenutzer {
-    private String name;
-    private static String passwort;
+    public String name;
+    public String passwort;
     private int benutzerID;
 
     private static ArrayList<Raum> meineBuchungen = new ArrayList<>();
@@ -23,29 +24,30 @@ public class Benutzer implements IBenutzer {
     }
 
     @Override
-    public String bucheRaum(Raum raum) {
-        return null;
+    public void bucheRaum() {
+
+
     }
 
     @Override
-    public String storniereRaum(Raum raum) {
-        return null;
+    public void storniereRaum(Raum raum) {
+
     }
 
     @Override
-    public String zeigeMeineBuchungen() {
-        return null;
-    }
-
-    @Override
-    public String zeigeVerfuegbareRaeume() {
-        return null;
+    public void zeigeMeineBuchungen() {
+        for (Raum buchungen : meineBuchungen) {
+            System.out.println(buchungen);
+        }
     }
 
 
-    public ArrayList<Raum> getMeineBuchungen() {
-        return meineBuchungen;
+    public static void fuegeBuchungHinzu(Raum raum) {
+        meineBuchungen.add(raum);
     }
+
+
+
 
     public String getName() {return name;}
 
@@ -53,81 +55,29 @@ public class Benutzer implements IBenutzer {
 
     public int getBenutzerID() {return benutzerID;}
 
-    public static void fuegeBuchungHinzu(Raum raum) {
-        meineBuchungen.add(raum);
+
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
+    }
+
 
     public String toString() {
-        return "Name: " +  getName() + "\nPasswort: " + getPasswort() + "\nBenutzerID: " + getBenutzerID();
+        return "Name: " + getName() + "\nPasswort: " + getPasswort();
     }
 
 
 
 
-
-        /*
-        // Datenbank
-        protected RaumDatenbank raumDatenbank = new RaumDatenbank();
-
-        // (1)Benutzer bucht einen Raum (2) Verfügbarkeit des Raum geprüft (3) geändert wenn verfügbar (4) zur Datenbank hinzugefügt (5)zu meineBuchungen hinzugefügt
-        @Override
-        public String bucheRaum(Raum raum) {
-            String ausgabe = "";
-
-            if (raum.getVerfuegbarkeit()) {
-
-                Object[] obj={"Ja","Nein"};
-                ImageIcon icon = new ImageIcon("jaNein");
-                Object antwort = JOptionPane.showInputDialog(null, "Wollen Sie den Raum '" + raum +  "' buchen?", "Eingabefenster",
-                        JOptionPane.INFORMATION_MESSAGE, icon, obj,"");
-                if (antwort.equals("Ja")) {
-                    ausgabe = "Sie haben den Raum '" + raum + "' erfolgreich gebucht";
-                    raum.setVerfuegbarkeit(false);
-                    raumDatenbank.speicherBelegtenRaum(raum);
-                    raumDatenbank.entferneVerfuegbarenRaum(raum);
-                    meineBuchungen.add(raum);
-                } else if (antwort.equals("Nein")) {
-                    ausgabe = "Der Raum '" + raum +  "' wurde nicht gebucht";
-                }
+public static void main(String[] args) {
 
 
-            } else if (!raum.getVerfuegbarkeit()) {
-                ausgabe = "Der Raum '" + raum + "' ist nicht verfügbar.";
-            }
-            return ausgabe;
-        }
+    Benutzer sami = new Benutzer("sami","abc");
 
 
-    // (1)Benutzer storniert Raum (2)Verfügbarkeit wird geändert (3)Raum von meineBuchungen gelöscht
-    @Override
-    public String storniereRaum(Raum raum) {
-        String ausgabe = "";
-        if (!raum.getVerfuegbarkeit()) {
-            raum.setVerfuegbarkeit(true);
-            meineBuchungen.remove(raum);
-            raumDatenbank.speicherVerfuegbarenRaum(raum);
-            raumDatenbank.entferneBelegtenRaum(raum);
-            ausgabe = "Sie haben die Buchung des Raumes " + raum + " erfolgreich storniert.";
-        } else if (raum.getVerfuegbarkeit()) {
-            ausgabe = "Der von ihnen angegebene Raum " + raum + " ist nicht gebucht\nHaben Sie den richtigen Raum eingegeben ?";
-        }
-
-        return ausgabe;
-    }
-
-    //TODO: Wie zeigt man Objekte mit Namen an anstatt Raum@5bf6742 ?  Bsp: Raum Audimax, Raum 103 etc.?
-    @Override
-    public String zeigeMeineBuchungen() {
-        return "Meine Buchungen: " + meineBuchungen;
-    }
-
-    @Override
-    public String zeigeVerfuegbareRaeume() {
-        String ausgabe;
-        ausgabe = "Verf�gbaren Raeume: " + raumDatenbank.ladeVerfuegbareRaeume();
-        return ausgabe;
-    }
-
- */
+}
 }
 

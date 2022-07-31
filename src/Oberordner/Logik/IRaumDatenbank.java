@@ -9,14 +9,14 @@ public interface IRaumDatenbank {
     }
 
     static void speicherBelegtenRaum(Raum raum) {
+
     }
 
-    static String ladeVerfuegbareRaeume() {
-        return null;
+    static void ladeVerfuegbareRaeume() {
     }
 
-    static String ladeBelegteRaeume() {
-        return null;
+    static void ladeBelegteRaeume() {
+
     }
 
 }
